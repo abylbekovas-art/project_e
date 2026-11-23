@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вход — E-LIBRARY</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #eaf2ff, #d6e5ff);
+        }
+
+        .login-card {
+            width: 90%;
+            max-width: 420px;
+            background: white;
+            padding: 45px 35px;
+            border-radius: 22px;
+            box-shadow: 0 12px 40px rgba(30, 70, 130, 0.13);
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 32px;
+            font-weight: bold;
+            color: #2457a7;
+            margin-bottom: 12px;
+        }
+
+        .icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        h2 {
+            color: #243b60;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #8492a6;
+            font-size: 14px;
+            margin-bottom: 30px;
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 17px;
+            border: 1px solid #dce5f1;
+            border-radius: 10px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #3478d4;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background: #2864b4;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        button:hover {
+            background: #194d91;
+        }
+
+        .error {
+            color: #dc3545;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .footer {
+            margin-top: 25px;
+            color: #9aa7b8;
+            font-size: 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-card">
+
+        <div class="icon">📚</div>
+
+        <div class="logo">E-LIBRARY</div>
+
+        <h2>Добро пожаловать!</h2>
+
+        <p class="subtitle">
+            Войдите в свою электронную библиотеку
+        </p>
+
+        <form method="POST">
+            <input
+                type="text"
+                name="username"
+                placeholder="Введите логин"
+                required
+            >
+
+            <input
+                type="password"
+                name="password"
+                placeholder="Введите пароль"
+                required
+            >
+
+            <button type="submit">Войти в систему</button>
+        </form>
+
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+
+        <div class="footer">
+            E-LIBRARY © 2026
+        </div>
+
+    </div>
+</body>
+</html>

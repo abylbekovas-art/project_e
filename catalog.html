@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог — E-LIBRARY</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<header class="header">
+    <a href="/" class="logo">📚 E-LIBRARY</a>
+    <nav>
+        <a href="/">Главная</a>
+        <a href="/catalog">Каталог</a>
+        <a href="/student">Личный кабинет</a>
+    </nav>
+</header>
+
+<main class="page">
+    <h1>Каталог книг</h1>
+    <p class="subtitle">Найдите книгу, которую хотите прочитать.</p>
+
+    <form action="/catalog" method="GET" class="search-box">
+        <input
+            type="text"
+            name="title"
+            placeholder="Название книги"
+            value="{{ title }}"
+        >
+
+        <input
+            type="text"
+            name="author"
+            placeholder="Имя автора"
+            value="{{ author }}"
+        >
+
+        <select name="genre">
+            <option value="">Все жанры</option>
+            {% for genre in genres %}
+                <option value="{{ genre }}"
+                    {% if selected_genre == genre %}selected{% endif %}>
+                    {{ genre }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <button type="submit" class="button">Найти</button>
+        <a href="/catalog" class="clear-button">Очистить</a>
+    </form>
+
+    <h2 class="results-title">Результаты поиска</h2>
+
+    <div class="book-grid">
+        {% for book in books %}
+            <div class="book-card">
+                <img src="{{ url_for('show_image', filename=book.cover.split('/')[-1]) }}" alt="Обложка {{ book.title }}" class="book-cover">
+
+                <h2>{{ book.title }}</h2>
+                <p>{{ book.author }}</p>
+                <p>{{book.genre}}</p>
+                <a href="/book/{{ book.id }}" class="details-link">
+                    Подробнее →
+                <form action="{{ url_for('reserve_book', book_id=book.id) }}" method="POST">
+    <button type="submit" class="reserve-btn">
+        <span>📚</span> Забронировать
+    </button>
+</form>
+</form>
+            </div>
+        {% else %}
+            <p class="empty">Книги не найдены. Попробуйте изменить запрос.</p>
+        {% endfor %}
+    </div>
+</main>
+
+<footer>
+    © 2026 E-LIBRARY | Electronic Library
+</footer>
+
+</body>
+</html>

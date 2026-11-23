@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мои книги | E-LIBRARY</title>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f2f5fa;
+            color: #1b2d45;
+        }
+        header {
+            background: #142b4b;
+            color: white;
+            padding: 22px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        header h1 { margin: 0; }
+        nav { display: flex; gap: 20px; flex-wrap: wrap; }
+        nav a { color: white; text-decoration: none; }
+        .container {
+            max-width: 1050px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        .profile, .history, .stat {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 22px;
+            box-shadow: 0 4px 15px #142b4b12;
+        }
+        .profile p { color: #718096; }
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .stat h2 {
+            color: #28558a;
+            font-size: 32px;
+            margin: 10px 0;
+        }
+        .book {
+            padding: 18px 0;
+            border-bottom: 1px solid #e8edf3;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 15px;
+        }
+        .book:last-child { border: none; }
+        .book p { color: #718096; font-size: 14px; }
+        .status {
+            padding: 8px 13px;
+            border-radius: 20px;
+            background: #e5f5e9;
+            color: #267442;
+            font-size: 13px;
+        }
+        .active {
+            background: #fff0d5;
+            color: #94620b;
+        }
+        .empty { color: #718096; }
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #718096;
+        }
+        @media(max-width:600px) {
+            .stats { grid-template-columns: 1fr; }
+            .book { align-items: flex-start; flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>📚 E-LIBRARY</h1>
+    <nav>
+        <a href="/">Главная</a>
+        <a href="/catalog">Каталог</a>
+        <a href="/student">Мои книги</a>
+    </nav>
+</header>
+
+<main class="container">
+
+    <h1>Личный кабинет</h1>
+    <p>Добро пожаловать в вашу электронную библиотеку!</p>
+
+    <section class="profile">
+        <h2>👤 {{ student.get('name', 'Студент') }}</h2>
+        <p>ID студента: {{ student.get('id', '—') }}</p>
+        <p>{{ student.get('email', '') }}</p>
+    </section>
+
+    <section class="stats">
+        <div class="stat">
+            <p>📖 Возвращено книг</p>
+            <h2>{{ history | selectattr('status', 'equalto', 'Возвращена') | list | length }}</h2>
+        </div>
+        <div class="stat">
+            <p>📚 Сейчас на руках</p>
+            <h2>{{ history | selectattr('status', 'equalto', 'На руках') | list | length }}</h2>
+        </div>
+    </section>
+
+    <section class="history" id="history">
+        <h2>📚 История моих книг</h2>
+
+        {% if history %}
+            {% for item in history %}
+                <div class="book">
+                    <div>
+                        <h3>{{ item.book_title }}</h3>
+                        <p>Дата выдачи: {{ item.borrow_date }}</p>
+                        <p>Дата возврата:
+                            {{ item.return_date or 'Ещё не возвращена' }}
+                        </p>
+                    </div>
+
+                    <span class="status {% if item.status == 'На руках' %}active{% endif %}">
+                        {{ item.status }}
+                    </span>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p class="empty">История книг пока пуста.</p>
+        {% endif %}
+    </section>
+
+    <p><a href="/catalog">← Перейти к каталогу книг</a></p>
+
+</main>
+
+<footer>E-LIBRARY © 2026</footer>
+
+</body>
+</html>
+
+
+

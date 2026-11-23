@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ book.title }} | E-LIBRARY</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="header-content">
+        <a href="/" class="logo">📚 E-LIBRARY</a>
+        <nav>
+            <a href="/">Главная</a>
+            <a href="/catalog">Каталог</a>
+            <a href="/student">Личный кабинет</a>
+        </nav>
+    </div>
+</header>
+
+<main class="book-detail-container">
+
+    <a href="/catalog" class="back-link">
+        ← Вернуться в каталог
+    </a>
+
+    <section class="book-detail">
+
+        <div class="detail-cover">
+            {% if book.cover %}
+                <img
+                    src="{{ url_for('show_image', filename=book.cover.split('/')[-1]) }}"
+                    alt="Обложка {{ book.title }}"
+                    class="detail-image"
+                >
+            {% else %}
+                <div class="no-cover">📖</div>
+            {% endif %}
+        </div>
+
+        <div class="detail-info">
+
+            <span class="book-label">ИНФОРМАЦИЯ О КНИГЕ</span>
+
+            <h1>{{ book.title }}</h1>
+
+            <p class="detail-author">
+                Автор: <strong>{{ book.author }}</strong>
+            </p>
+
+            <div class="book-meta">
+                <div class="meta-item">
+                    <span>Жанр</span>
+                    <strong>{{ book.genre }}</strong>
+                </div>
+
+                <div class="meta-item">
+                    <span>Год издания</span>
+                    <strong>{{ book.year }}</strong>
+                </div>
+            </div>
+
+            <div class="description">
+                <h2>О книге</h2>
+                <p>
+                    {{ book.description or "Описание пока не добавлено." }}
+                </p>
+            </div>
+
+            <a href="/catalog" class="catalog-button">
+                Перейти к другим книгам
+            </a>
+
+        </div>
+
+    </section>
+
+</main>
+
+<footer class="footer">
+    <p>© 2026 E-LIBRARY | Электронная библиотека</p>
+</footer>
+
+</body>
+</html>
