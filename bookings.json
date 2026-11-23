@@ -1,0 +1,100 @@
+[
+    {
+        "student_id": 2103,
+        "student_name": "Иванов Иван Иванович",
+        "book_id": 3,
+        "book_title": "Гарри Поттер",
+        "status": "Ожидает подтверждения"
+    },
+    {
+        "student_id": 2103,
+        "student_name": "Иванов Иван Иванович",
+        "book_id": 3,
+        "book_title": "Гарри Поттер",
+        "status": "Ожидает подтверждения"
+    },
+    {
+        "student_id": 2103,
+        "student_name": "Иванов Иван Иванович",
+        "book_id": 3,
+        "book_title": "Гарри Поттер",
+        "status": "Ожидает подтверждения"
+    },
+    {
+        "student_id": 2103,
+        "student_name": "Иванов Иван Иванович",
+        "book_id": 2,
+        "book_title": "Маленький принц",
+        "status": "Ожидает подтверждения"
+    },
+    {
+        "student_id": 2103,
+        "student_name": "Иванов Иван Иванович",
+        "book_id": 1,
+        "book_title": "Белый пароход",
+        "status": "Ожидает подтверждения"
+    },
+    {
+        "student_id": 2103,
+        "student_name": "Иванов Иван Иванович",
+        "book_id": 2,
+        "book_title": "Маленький принц",
+        "status": "Ожидает подтверждения"
+    },
+    {
+        "student_id": 2103,
+        "student_name": "Иванов Иван Иванович",
+        "book_id": 3,
+        "book_title": "Гарри Поттер",
+        "status": "Ожидает подтверждения"
+    },
+    {
+        "student_id": 2103,
+        "student_name": "Иванов Иван Иванович",
+        "book_id": 3,
+        "book_title": "Гарри Поттер",
+        "status": "Ожидает подтверждения"
+    },
+    {
+        "student_id": 2103,
+        "student_name": "Иванов Иван Иванович",
+        "book_id": 1,
+        "book_title": "Белый пароход",
+        "status": "Ожидает подтверждения"
+    },
+    {
+        "student_id": 2103,
+        "student_name": "Иванов Иван Иванович",
+        "book_id": 4,
+        "book_title": "Война и мир",
+        "status": "Ожидает подтверждения"
+    },
+    {
+        "student_id": 2103,
+        "student_name": "Иванов Иван Иванович",
+        "book_id": 2,
+        "book_title": "Маленький принц",
+        "status": "Ожидает подтверждения"
+    },
+    {
+        "student_id": 2103,
+        "student_name": "Иванов Иван Иванович",
+        "book_id": 1,
+        "book_title": "Белый пароход",
+        "status": "Ожидает подтверждения"
+    },
+    {
+        "student_id": 2103,
+        "student_name": "Иванов Иван Иванович",
+        "book_id": 1,
+        "book_title": "Белый пароход",
+        "status": "Ожидает подтверждения"
+    },
+    {
+        "student_id": 2103,
+        "student_name": "Иванов Иван Иванович",
+        "book_id": 3,
+        "book_title": "Гарри Поттер",
+        "status": "Ожидает подтверждения"
+    }
+]
